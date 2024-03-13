@@ -1,0 +1,38 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 5rem 2rem 5rem;
+    gap: 2rem;
+}
+.one{
+    width: 40%;
+    padding-left: 1rem;
+}
+.oneheader{
+    font-variant: small-caps;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-left: -.7rem;
+}
+.btns{
+    padding-top: .5rem;
+    display: flex;
+    gap: .5rem;
+    font-size: 1.5rem;
+}
+.two{
+    width: 20%;
+    padding-left: 1rem;
+}
+.three{
+    width: 20%;
+    padding-left: 1rem;
+}
+.four{
+    width: 20%;
+    padding-left: 1rem;
+}
