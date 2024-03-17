@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './Login.module.css'
-import {useNavigate} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 import {useFormik } from "formik"
 import * as yup from "yup"
 export default function Login() {
@@ -37,7 +37,7 @@ export default function Login() {
         <div className={`${style.row} ${style.button}`}>
           <input type="submit" value="Login"  className={`${style.input} ${style.btninput} ` }/>
         </div>
-        <div className={style.signup_link}>Not a member? <a href="#">Signup now</a></div>
+        <div className={style.signup_link}>Not a member? <Link to="/signup" className={style.link}>Signup now</Link></div>
       </form>
     </div>
   </div>
