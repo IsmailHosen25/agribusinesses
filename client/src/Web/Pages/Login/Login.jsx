@@ -1,8 +1,9 @@
 import React from 'react'
 import style from './Login.module.css'
-
+import img from "../../../assets/farmer_land.jpg"
 export default function Login() {
   return (
+    <div className={style.login_container}>
     <div className={style.container}>
     <div className={style.wrapper}>
       <div className={style.title}><span>Login Form</span></div>
@@ -23,6 +24,6 @@ export default function Login() {
       </form>
     </div>
   </div>
-
+  </div>
   )
 }
