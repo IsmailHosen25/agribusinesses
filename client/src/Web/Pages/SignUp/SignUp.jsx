@@ -51,7 +51,7 @@ export default function SignUp() {
                    <select name="role" onChange={handleChange} className={style.select}>
                         <option defaultChecked >Choose your role ...</option>
                         <option>Farmer</option>
-                        <option>Vandor</option>
+                        <option>Vendor</option>
                     </select>
           <p className={style.p_error}>{touched.role ? errors.role :""}</p>
         </div>
