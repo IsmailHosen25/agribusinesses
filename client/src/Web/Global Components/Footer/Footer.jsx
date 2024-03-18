@@ -15,10 +15,10 @@ export default function Footer() {
         </div>
         <p className='text-[#333] text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam incidunt ex laborum ipsam distinctio aut dolor. Aliquid animi, mollitia dolores enim amet expedita quas voluptatum sapiente ducimus aut qui dolorem.</p>
         <div className={style.btns}>
-          <a href='.##'><button className='hover:text-[#316FF6]'><CiFacebook/></button></a>
-          <a href='.##'><button className='hover:text-[#0077b5]'><CiLinkedin/></button></a>
-          <a href='.##'><button className='hover:text-[#25D366]'><FaWhatsapp/></button></a>
-          <a href='.##'><button className='hover:text-[#0088cc]'><LiaTelegram/></button></a>
+          <a href='.##'><button className='hover:text-[#316FF6] transition-all delay-[70ms] hover:text-[1.8rem]'><CiFacebook/></button></a>
+          <a href='.##'><button className='hover:text-[#0077b5] transition-all delay-[70ms] hover:text-[1.8rem]'><CiLinkedin/></button></a>
+          <a href='.##'><button className='hover:text-[#25D366] transition-all delay-[70ms] hover:text-[1.8rem]'><FaWhatsapp/></button></a>
+          <a href='.##'><button className='hover:text-[#0088cc] transition-all delay-[70ms] hover:text-[1.8rem]'><LiaTelegram/></button></a>
         </div>
       </div>
       <div className={style.two}>
