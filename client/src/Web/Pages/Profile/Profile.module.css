@@ -1,0 +1,27 @@
+.profile_div{
+    margin-top: 2rem;
+    padding-left:5rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.user_info{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.user_img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.user_deatils{
+    padding-top:2rem ;
+}
+.user_name{
+    font-size: 3rem;
+}
