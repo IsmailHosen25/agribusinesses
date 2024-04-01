@@ -1,6 +1,7 @@
 import React from 'react'
 import profle from "../../../assets/profile.jpg"
 import style from "./Profile.module.css"
+import ProfileAdmin from './components/ProfileAdmin'
 export default function Profile() {
   return (
     <div className={style.profile_div}>
@@ -11,9 +12,7 @@ export default function Profile() {
                <p>ismailhosen122@gmail.com</p>
             </div>
         </div>
-        <div>
-
-        </div>
+        <ProfileAdmin/>
     </div>
   )
 }
