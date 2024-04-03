@@ -18,6 +18,7 @@
     text-align: center;
     border: 2px solid #7AA2E3;
     padding: 0.5rem;
+    cursor: pointer;
 }
 .nav div:hover{
    background-color:#8B93FF;

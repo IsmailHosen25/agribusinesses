@@ -1,6 +1,7 @@
 import React from 'react'
 import style from "./ProfileAdmin.module.css"
 import YourOrder from './YourOrder'
+import Addproducts from './Addproducts'
 export default function ProfileAdmin() {
   return (
     <div className={style.admindiv}>
@@ -9,7 +10,8 @@ export default function ProfileAdmin() {
             <div>Your Order</div>
         </div>
         <div className={style.changablediv}>
-           <YourOrder/>
+           {/* <YourOrder/> */}
+           <Addproducts/>
         </div>
     </div>
   )
