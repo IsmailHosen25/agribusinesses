@@ -2,29 +2,39 @@ import React from 'react'
 import style from './Signup.module.css'
 import {Link,useNavigate} from "react-router-dom"
 import {useFormik } from "formik"
+import axios from "axios"
 import * as yup from "yup"
 export default function SignUp() {
     const navigate =useNavigate()
     const {values, handleChange,handleBlur,handleSubmit,touched,errors} =useFormik({
         initialValues:{
-            email:"",
+            number:"",
             password:"",
             cp_password:"",
             role:""
         },
         validationSchema:yup.object({
-            email:yup.email,
+            number:yup.string().required("Please enter you mobile Number"),
             password:yup.string().min(6).required("Please enter your password"),
             cp_password:yup.string().required("Please enter your Confirm password").oneOf([yup.ref("password"),null],"Password must match"),
             role:yup.string().required("Role must be selected")
         }),
-        onSubmit:(values)=>{
+        onSubmit:async (values)=>{
             if(values.role==="Choose your role ..."){
                   alert("Choose your role")
                   return
             }
-            console.log(values)
-            navigate("/")
+            const data=JSON.stringify(values)
+            const res =await axios.post("http://localhost:3000/user/signup", data,{
+              headers:{
+                "Content-Type":"application/json"
+              },
+              withCredentials:true
+            })
+            if(res.data.message=="Accepted"){
+                console.log(res.data.message) 
+                alert("hello")  
+            }
         }
     })
   return (
@@ -35,7 +45,8 @@ export default function SignUp() {
       <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.row}>
           <i className="fas fa-user"></i>
-          <input type="email" placeholder="Email" name='email' value={values.email} onBlur={handleBlur} onChange={handleChange}  className={style.input} required/>
+          <input type="number" placeholder="Phone Number" name='number' value={values.number} onBlur={handleBlur} onChange={handleChange}  className={style.input} required/>
+          <p className={style.p_error}>{touched.number ? errors.number :""}</p>
         </div>
         <div className={style.row}>
           <i className="fas fa-lock"></i>
@@ -50,7 +61,7 @@ export default function SignUp() {
         <div className={style.row}>
                    <select name="role" onChange={handleChange} className={style.select}>
                         <option defaultChecked >Choose your role ...</option>
-                        <option>Farmer</option>
+                        <option>Farm</option>
                         <option>Vendor</option>
                     </select>
           <p className={style.p_error}>{touched.role ? errors.role :""}</p>

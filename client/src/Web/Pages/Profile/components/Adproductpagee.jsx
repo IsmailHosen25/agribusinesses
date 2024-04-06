@@ -1,4 +1,4 @@
-
+import axios from "axios"
 import styles from './Adproductpagee.module.css'
 export default function Adproductpagee({products}) {
 
@@ -18,14 +18,19 @@ export default function Adproductpagee({products}) {
            </div>
            {products.map((item,i)=> <div key={i} className={styles.addproduct}>
               <div className={styles.ptg}>
-                <img className={styles.ptgimg}  src={``}/>
+                <img className={styles.ptgimg}  src={`http://localhost:3000/img?name=${item.filename}`}/>
               </div>
 
                <p className={styles.ptg}>{item.title}</p>
                <p className={styles.ptg}>${item.price}</p>
                <p className={styles.ptg}>{item.code}</p>
                <div className={styles.ptg}>
-                 <button className={styles.btn}>- delete</button>
+                 <button className={styles.btn} onClick={async ()=>{
+                   const res=axios.delete(`http://localhost:3000/product/remove?id=${item.id}`,{
+                    withCredentials:true
+                   })
+                   window.location.reload()
+                 }}>- delete</button>
                </div>
 
            </div>)}
