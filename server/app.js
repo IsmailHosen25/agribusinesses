@@ -17,9 +17,14 @@ app.use("/user",userRouter)
 const productRouter=require("./routers/product.route")
 app.use("/product",productRouter)
 
+
 app.get("/img",(req,res)=>{
     res.download(`./image/${req.query.name}`)
 })
+=======
+const orderRouter=require("./routers/order.route")
+app.use("/order",orderRouter)
+
 
 app.use((errors,req,res,next)=>{
     if(errors.message){
