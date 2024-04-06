@@ -4,9 +4,9 @@ import {useFormik} from "formik"
 import * as yup from "yup"
 import axios from "axios"
 import Adproductpagee from "./Adproductpagee"
-const products =[{},{}]
-export default function Addproducts() {
 
+export default function Addproducts() {
+  const [ products,setproducts]=useState([])
   const formik=useFormik({
     initialValues:{
         file:"",
@@ -28,7 +28,7 @@ export default function Addproducts() {
         return
        }
         const formdata=new FormData()
-        // formdata.append("file",values.file)
+        formdata.append("file",values.file)
         formdata.append("title", values.title)
         formdata.append("price",values.price)
         formdata.append("code",values.code)
@@ -36,10 +36,18 @@ export default function Addproducts() {
         const res=await axios.post("http://localhost:3000/product/add",formdata,{withCredentials:true})
         if(res.data.message=="Accepted"){
           console.log(res.data.message)  
-          alert("hello") 
+          window.location.reload()
       }
     }
   })
+  const getproduct = async()=>{
+    const res=await axios.get("http://localhost:3000/product/show")
+    setproducts(res.data.data)
+  }
+  useEffect(()=>{
+    getproduct()
+  },[])
+  
   return (
     <div className={styles.addhome}>
 

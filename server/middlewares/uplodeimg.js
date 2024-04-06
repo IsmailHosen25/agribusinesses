@@ -18,7 +18,7 @@ const storage=multer.diskStorage({
 var uploadimg=multer({
     storage:storage,
     limits:{
-        fileSize:5000000 // 1MB //
+        fileSize:5000000 // 5MB //
     },
     fileFilter:(req,file,cb)=>{
         if(file.mimetype=== "image/jpg"|| file.mimetype==="image/png" || file.mimetype==="image/jpeg"){

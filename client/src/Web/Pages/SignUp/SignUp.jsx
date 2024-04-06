@@ -32,9 +32,9 @@ export default function SignUp() {
               withCredentials:true
             })
             if(res.data.message=="Accepted"){
-                console.log(res.data.message)   
+                console.log(res.data.message) 
+                alert("hello")  
             }
-            alert("hello")
         }
     })
   return (
@@ -61,7 +61,7 @@ export default function SignUp() {
         <div className={style.row}>
                    <select name="role" onChange={handleChange} className={style.select}>
                         <option defaultChecked >Choose your role ...</option>
-                        <option>Farmer</option>
+                        <option>Farm</option>
                         <option>Vendor</option>
                     </select>
           <p className={style.p_error}>{touched.role ? errors.role :""}</p>

@@ -29,10 +29,17 @@ export default function Login() {
              },
              withCredentials:true
            })
-           if(res.data.message=="Accepted"){
-               console.log(res.data.message)   
+           if(res.data.message=="login"){
+              alert("login")  
+              navigate("/profile")
            }
-           alert("hello")
+           else if(res.data.message=="somthing wrong"){
+            alert("somthing wrong") 
+           }
+           else{
+            alert("Sign up first")
+            navigate("/signup")
+           }
         }
     })
   return (
@@ -54,7 +61,7 @@ export default function Login() {
         <div className={style.row}>
                    <select name="role" onChange={handleChange} className={style.select}>
                         <option defaultChecked >Choose your role ...</option>
-                        <option>Farmer</option>
+                        <option>Farm</option>
                         <option>Vendor</option>
                     </select>
           <p className={style.p_error}>{touched.role ? errors.role :""}</p>

@@ -20,7 +20,9 @@ try{
             }else{
                 const sql="INSERT INTO farm(number,password,role) VALUES(?, ?, ?)"
                 db.query(sql,[number,hashedpassword,role],function(error,result){
-                    res.send("Accepted")
+                    res.json({
+                        "message":"Accepted"
+                    })
                 })
             }
            
