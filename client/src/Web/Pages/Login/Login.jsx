@@ -3,20 +3,36 @@ import style from './Login.module.css'
 import {Link,useNavigate} from "react-router-dom"
 import {useFormik } from "formik"
 import * as yup from "yup"
+import axios from 'axios'
 export default function Login() {
     const navigate =useNavigate()
     const {values, handleChange,handleBlur,handleSubmit,touched,errors} =useFormik({
         initialValues:{
-            email:"",
-            password:""
+            number:"",
+            password:"",
+            role:""
         },
         validationSchema:yup.object({
-            email:yup.email,
-            password:yup.string().required("password is required")
+            number:yup.string().required("Please enter you mobile Number"),
+            password:yup.string().required("password is required"),
+            role:yup.string().required("Role must be selected")
         }),
-        onSubmit:(values)=>{
-            console.log(values)
-            navigate("/")
+        onSubmit:async(values)=>{
+          if(values.role==="Choose your role ..."){
+            alert("Choose your role")
+            return
+           }
+           const data=JSON.stringify(values)
+           const res =await axios.post("http://localhost:3000/user/login", data,{
+             headers:{
+               "Content-Type":"application/json"
+             },
+             withCredentials:true
+           })
+           if(res.data.message=="Accepted"){
+               console.log(res.data.message)   
+           }
+           alert("hello")
         }
     })
   return (
@@ -27,11 +43,21 @@ export default function Login() {
       <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.row}>
           <i className="fas fa-user"></i>
-          <input type="email" placeholder="Email" name='email' value={values.email} onBlur={handleBlur} onChange={handleChange}  className={style.input} required/>
+          <input type="number" placeholder="number" name='number' value={values.number} onBlur={handleBlur} onChange={handleChange}  className={style.input} required/>
+          <p className={style.p_error}>{touched.number ? errors.number :""}</p>
         </div>
         <div className={style.row}>
           <i className="fas fa-lock"></i>
           <input type="password" placeholder="Password" name='password' value={values.password} onBlur={handleBlur} onChange={handleChange} className={style.input}  required/>
+          <p className={style.p_error}>{touched.password ? errors.password :""}</p>
+        </div>
+        <div className={style.row}>
+                   <select name="role" onChange={handleChange} className={style.select}>
+                        <option defaultChecked >Choose your role ...</option>
+                        <option>Farmer</option>
+                        <option>Vendor</option>
+                    </select>
+          <p className={style.p_error}>{touched.role ? errors.role :""}</p>
         </div>
         <div className={style.pass}><a href="#">Forgot password?</a></div>
         <div className={`${style.row} ${style.button}`}>

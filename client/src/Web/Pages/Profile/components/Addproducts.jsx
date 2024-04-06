@@ -2,6 +2,7 @@ import styles from "./Addproducts.module.css"
 import { useEffect, useState } from 'react'
 import {useFormik} from "formik"
 import * as yup from "yup"
+import axios from "axios"
 import Adproductpagee from "./Adproductpagee"
 const products =[{},{}]
 export default function Addproducts() {
@@ -22,12 +23,21 @@ export default function Addproducts() {
     })
     ,
     onSubmit:async(values)=>{
+      if(values.role==="Choose..."){
+        alert("Choose a catagory")
+        return
+       }
         const formdata=new FormData()
-        formdata.append("file",values.file)
+        // formdata.append("file",values.file)
         formdata.append("title", values.title)
         formdata.append("price",values.price)
         formdata.append("code",values.code)
         formdata.append("catagory",values.catagory)
+        const res=await axios.post("http://localhost:3000/product/add",formdata,{withCredentials:true})
+        if(res.data.message=="Accepted"){
+          console.log(res.data.message)  
+          alert("hello") 
+      }
     }
   })
   return (

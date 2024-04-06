@@ -41,7 +41,7 @@
 }
 .row{
   height: 45px;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
   position: relative;
 }
 .input{
@@ -109,4 +109,12 @@
 }
 .link:hover{
   text-decoration: underline;
+}
+.p_error{
+  color: red;
+}
+.select{
+  border: 1px solid red;
+  width: 100%;
+  padding: 0.2rem;
 }
