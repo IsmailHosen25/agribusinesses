@@ -7,9 +7,12 @@ import Errorpage from './Web/Pages/ErrorPage/Errorpage'
 import Profile from "./Web/Pages/Profile/Profile"
 import Protectedpage from './Protectedpage'
 import Updateprofile from './Web/Pages/Profile/components/Updateprofile'
+import Navbar from './Global Components/Navbar/Navbar'
+
 export default function Layout() {
   return (
     <>
+     <Navbar/>
      <Routes>
         <Route  path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
