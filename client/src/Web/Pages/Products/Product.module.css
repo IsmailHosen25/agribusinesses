@@ -21,3 +21,32 @@
     gap: 2rem;
     flex-wrap: wrap;
 }
+.cart{
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    outline: 2px solid whitesmoke;
+}
+.countcart{
+    background-color: red;
+    color: white;
+    position: fixed;
+    bottom: 55px;
+    right: 55px;
+    width: 23px;
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 9;
+
+}

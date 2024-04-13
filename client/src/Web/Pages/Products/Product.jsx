@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '../../../Global Components/Card/Card'
 import style from './Product.module.css'
+import { FaCartArrowDown } from "react-icons/fa6";
 
 
 const products = [{
@@ -107,7 +108,11 @@ export default function Products() {
           <Card key={key} name={item.name} price={item.price} quantity={item.quantity} packdate={item.packdate} expdate={item.expdate} warehouse={item.warehouse}/>          
         )
       }
+      <div className={style.cart}>
+        <FaCartArrowDown size={'1.7rem'}/>
       </div>
+      </div>
+        <p className={style.countcart}>5</p>
     </div>
   )
 }
