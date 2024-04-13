@@ -1,11 +1,12 @@
 import React from 'react'
 import Card from '../../../Global Components/Card/Card'
 import style from './Product.module.css'
-import { FaCartArrowDown } from "react-icons/fa6";
+import Carticon from '../../../Global Components/Cart/comp/Carticon';
+import photo from '../../../assets/Header_01.jpg'
 
 
 const products = [{
-    img:"",
+    img: photo,
     name: "Potato",
     price: 40,
     quantity:400,
@@ -14,7 +15,7 @@ const products = [{
     warehouse: 'Dhaka'
 },
 {
-  img:"",
+  img: photo,
   name: "Potato1",
   price: 40,
   quantity:400,
@@ -22,7 +23,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato2",
   price: 40,
   quantity:400,
@@ -30,7 +31,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato3",
   price: 40,
   quantity:400,
@@ -38,7 +39,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato4",
   price: 40,
   quantity:400,
@@ -46,7 +47,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato5",
   price: 40,
   quantity:400,
@@ -54,7 +55,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato6",
   price: 40,
   quantity:400,
@@ -62,7 +63,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato7",
   price: 40,
   quantity:400,
@@ -70,7 +71,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato8",
   price: 40,
   quantity:400,
@@ -78,7 +79,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato9",
   price: 40,
   quantity:400,
@@ -86,7 +87,7 @@ const products = [{
   expdate: '29-07-2024',
   warehouse: 'Dhaka'
 },{
-  img:"",
+  img: photo,
   name: "Potato10",
   price: 40,
   quantity:400,
@@ -105,14 +106,11 @@ export default function Products() {
       <div className={style.container}>
       {
         products.map((item, key)=>
-          <Card key={key} name={item.name} price={item.price} quantity={item.quantity} packdate={item.packdate} expdate={item.expdate} warehouse={item.warehouse}/>          
+          <Card key={key}img={item.img} name={item.name} price={item.price} quantity={item.quantity} packdate={item.packdate} expdate={item.expdate} warehouse={item.warehouse}/>          
         )
       }
-      <div className={style.cart}>
-        <FaCartArrowDown size={'1.7rem'}/>
       </div>
-      </div>
-        <p className={style.countcart}>5</p>
+      <Carticon />
     </div>
   )
 }

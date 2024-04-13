@@ -1,6 +1,13 @@
 import style from'./Card.module.css'
+import useCartContext from "../../Hooks/useCartContext"
 
 export default function Card({img ,name, price, quantity, packdate, expdate, warehouse}) {
+   const product = {img, name,price, quantity, packdate, expdate, warehouse}
+   const {cartitem,setcartitem}=useCartContext()
+
+   const handlecart=()=>{
+      setcartitem([...cartitem,{...product}])
+   }
    
   return (
    <div className={style.container}>
@@ -28,8 +35,8 @@ export default function Card({img ,name, price, quantity, packdate, expdate, war
          </div>
          <div className={style.btn}>
             <button className={style.subbtn1}> - </button>
-            <button className={style.subbtn2}>Add to Cart</button>
-            <button className={style.subbtn3}> + </button>
+            <button className={style.subbtn2} onClick={handlecart}>Add to Cart</button>
+            <button className={style.subbtn3} onClick={handlecart}> + </button>
          </div>
       </div>
 
