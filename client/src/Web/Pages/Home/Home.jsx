@@ -1,5 +1,7 @@
 import React from 'react'
 import style from './Home.module.css'
+import Footer from '../../../Global Components/Footer/Footer'
+
 
 
 export default function Home() {
@@ -20,7 +22,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+      <Footer />
     </>
   )
 }
