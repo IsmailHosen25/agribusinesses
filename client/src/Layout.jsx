@@ -5,6 +5,8 @@ import Login from './Web/Pages/Login/Login'
 import SignUp from './Web/Pages/SignUp/SignUp'
 import Errorpage from './Web/Pages/ErrorPage/Errorpage'
 import Profile from "./Web/Pages/Profile/Profile"
+import Protectedpage from '../Protectedpage'
+import Updateprofile from './Web/Pages/Profile/components/Updateprofile'
 export default function Layout() {
   return (
     <>
@@ -12,7 +14,8 @@ export default function Layout() {
         <Route  path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile' element={<Protectedpage Components={Profile}/>}/>
+        <Route path='/updateprofile' element={<Protectedpage Components={Updateprofile}/>}/>
         <Route path='*' element={<Errorpage/>}/>
      </Routes>
     </>
