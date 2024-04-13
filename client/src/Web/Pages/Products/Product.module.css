@@ -1,0 +1,23 @@
+.cont{
+    width: 100%;
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.title{
+    padding: 1rem;
+    font-size: 2rem;
+    color: green;
+    font-weight: 600;
+}
+.container{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
