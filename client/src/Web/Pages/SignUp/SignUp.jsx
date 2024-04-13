@@ -31,9 +31,14 @@ export default function SignUp() {
               },
               withCredentials:true
             })
-            if(res.data.message=="Accepted"){
-                console.log(res.data.message) 
-                alert("hello")  
+            if(res.data.message==="login"){
+              window.localStorage.setItem("user", true)
+              window.localStorage.setItem("number",res.data.number)
+              window.localStorage.setItem("role",res.data.role)
+              navigate("/profile")
+            }
+            else{
+              alert("somthing wrong try agin")
             }
         }
     })

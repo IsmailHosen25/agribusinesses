@@ -29,8 +29,10 @@ export default function Login() {
              },
              withCredentials:true
            })
-           if(res.data.message=="login"){
-              alert("login")  
+           if(res.data.message==="login"){
+            window.localStorage.setItem("user", true)
+            window.localStorage.setItem("number",res.data.number)
+            window.localStorage.setItem("role",res.data.role)
               navigate("/profile")
            }
            else if(res.data.message=="somthing wrong"){

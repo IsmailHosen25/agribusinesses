@@ -5,7 +5,7 @@ import Login from './Web/Pages/Login/Login'
 import SignUp from './Web/Pages/SignUp/SignUp'
 import Errorpage from './Web/Pages/ErrorPage/Errorpage'
 import Profile from "./Web/Pages/Profile/Profile"
-import Protectedpage from '../Protectedpage'
+import Protectedpage from './Protectedpage'
 import Updateprofile from './Web/Pages/Profile/components/Updateprofile'
 export default function Layout() {
   return (
