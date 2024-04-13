@@ -11,6 +11,9 @@ const info =require('../Controllers/user/info.cont')
 userRouter.get("/info",info)
 
 const updinfo=require("../Controllers/user/updinfo.cont")
-userRouter.put("updinfo",updinfo)
+userRouter.post("/updinfo",updinfo)
+
+const userproduct =require("../Controllers/user/userproduct")
+userRouter.get('/product',userproduct)
 
 module.exports=userRouter

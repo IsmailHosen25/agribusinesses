@@ -8,22 +8,30 @@ const login=async(req,res)=>{
         db.connect(function(error){
             const sql=`SELECT * FROM ${role} where number= ${number}`
             db.query(sql,async function (error,result){
-                if(result.length>0){
-                    const passwordvalid= await bcrypt.compare(password,result[0].password)
-                    if(passwordvalid){
+                if(error){
+                    res.json({
+                        message:"404"
+                    })
+                }else{
+                    if(result.length>0){
+                        const passwordvalid= await bcrypt.compare(password,result[0].password)
+                        if(passwordvalid){
+                           res.json({
+                            message:"login",
+                            number:result[0].number,
+                            role:result[0].role
+                           })
+                        }else{
+                            res.json({
+                                "message":"somthing wrong"
+                            })
+                        }
+                    }
+                    else{
                         res.json({
-                            "message":"login"
-                        })
-                    }else{
-                        res.json({
-                            "message":"somthing wrong"
+                            "message":"first signup"
                         })
                     }
-                }
-                else{
-                    res.json({
-                        "message":"first signup"
-                    })
                 }
                
             })
