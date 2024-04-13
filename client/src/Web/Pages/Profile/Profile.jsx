@@ -23,7 +23,7 @@ export default function Profile() {
   return (
     <div className={style.profile_div}>
         <div className={style.user_info}>
-            <img className={style.user_img} src={profle}/>
+            <img className={style.user_img} src={""}/>
             <div className={style.user_deatils}>
                <p className={style.user_name}>{userinfo.name}</p>
                <p>{userinfo.email}</p>

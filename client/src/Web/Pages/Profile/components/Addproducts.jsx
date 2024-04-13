@@ -11,29 +11,35 @@ export default function Addproducts() {
   const formik=useFormik({
     initialValues:{
         file:"",
-        title:"",
+        name:"",
         price:"",
-        code:"",
-        catagory:""
+        quentity:"",
+        packingdate:"",
+        expdate:"",
+        warehouse:""
     },validationSchema:yup.object({
       file:yup.string().required("file is requird"),
-      title:yup.string().required("title is Required"),
+      name:yup.string().required("title is Required"),
       price:yup.string().required("price is Required"),
-      code:yup.string().required("code is Required"),
-      catagory:yup.string().required("caragory is Required")
+      quentity:yup.string().required("quentity is Required"),
+      packingdate:yup.string(),
+      expdate:yup.string(),
+      warehouse:yup.string().required("warehouse is Required")
     })
     ,
     onSubmit:async(values)=>{
       if(values.role==="Choose..."){
-        alert("Choose a catagory")
+        alert("Choose a warehouse")
         return
        }
         const formdata=new FormData()
         formdata.append("file",values.file)
-        formdata.append("title", values.title)
+        formdata.append("name", values.name)
         formdata.append("price",values.price)
-        formdata.append("code",values.code)
-        formdata.append("catagory",values.catagory)
+        formdata.append("quentity",values.quentity)
+        formdata.append("packingdate",values.packingdate)
+        formdata.append("expdate",values.expdate)
+        formdata.append("warehouse",values.warehouse)
         formdata.append("number",id)
         const res=await axios.post("http://localhost:3000/product/add",formdata,{withCredentials:true})
         if(res.data.message=="Accepted"){
@@ -62,28 +68,39 @@ export default function Addproducts() {
                 formik.setFieldValue("file", e.target.files[0])
             }} />
             <div className={styles.ptg}>
-              <input type='text' name='title' placeholder='Title' value={formik.values.title} onChange={formik.handleChange}/>
-              <label><i>{formik.errors.title}</i></label>
+              <input type='text' name='name' placeholder='Name' value={formik.values.name} onChange={formik.handleChange}/>
+              <label><i>{formik.errors.name}</i></label>
             </div>
            <div className={styles.ptg}>
              <input type='number' name='price' placeholder='Price' value={formik.values.price} onChange={formik.handleChange}/>
              <label><i>{formik.errors.price}</i></label>
             </div>
             <div className={styles.ptg}>
-              <input type='text' name='code' placeholder='code' value={formik.values.code} onChange={formik.handleChange}/>
-               <label><i>{formik.errors.code}</i></label>
+              <input type='number' name='quentity' placeholder='quentity' value={formik.values.quentity} onChange={formik.handleChange}/>
+               <label><i>{formik.errors.quentity}</i></label>
+            </div>
+            <div className={styles.ptg}>
+              <input type='date' name='packingdate' placeholder='Packing Date' value={formik.values.packingdate} onChange={formik.handleChange}/>
+              <p className="text-[black]">(Packing Date)</p>
+            </div>
+            <div className={styles.ptg}>
+              <input type='date' name='expdate' placeholder='Expire Date' value={formik.values.expdate} onChange={formik.handleChange}/>
+              <p className="text-[black]">(Expire Date)</p>
             </div>
             <div  className={styles.ptg}>
-                    <select name="catagory" onChange={formik.handleChange} className={styles.select}>
+                    <select name="warehouse" onChange={formik.handleChange} className={styles.select}>
                         <option defaultChecked >Choose...</option>
-                        <option>Home Men's</option>
-                        <option>Home Women's</option>
-                        <option>Home Kid's</option>
-                        <option>Men's</option>
-                        <option>Women's</option>
-                        <option>Kid's</option>
+                        <option>Barisal Warehouse</option>
+                        <option>Chittagong Warehouse</option>
+                        <option>Comilla Warehouse</option>
+                        <option>Dhaka Warehouse</option>
+                        <option>Khulna Warehouse</option>
+                        <option>Mymensingh Warehouse</option>
+                        <option>Rangpur Warehouse</option>
+                        <option>Rajshahi Warehouse</option>
+                        <option>Sylhet Warehouse</option>
                     </select>
-                    <label><i>{formik.errors.catagory}</i></label>
+                    <label><i>{formik.errors.warehouse}</i></label>
             </div>
             <div className={styles.ptgbtn}>
                  <button  type='submit' className={styles.btnc}> + Add</button>

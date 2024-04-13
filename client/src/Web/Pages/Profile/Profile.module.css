@@ -19,9 +19,11 @@
     height: 200px;
     border-radius: 50%;
 }
-.user_deatils{
-    padding-top:2rem ;
-}
+
 .user_name{
     font-size: 3rem;
+}
+.link{
+    text-decoration: underline;
+    color: blue;
 }
