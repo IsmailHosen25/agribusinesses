@@ -6,6 +6,7 @@ import axios from "axios"
 import Adproductpagee from "./Adproductpagee"
 
 export default function Addproducts() {
+  const id=window.localStorage.getItem("number")
   const [ products,setproducts]=useState([])
   const formik=useFormik({
     initialValues:{
@@ -33,15 +34,15 @@ export default function Addproducts() {
         formdata.append("price",values.price)
         formdata.append("code",values.code)
         formdata.append("catagory",values.catagory)
+        formdata.append("number",id)
         const res=await axios.post("http://localhost:3000/product/add",formdata,{withCredentials:true})
         if(res.data.message=="Accepted"){
-          console.log(res.data.message)  
           window.location.reload()
       }
     }
   })
   const getproduct = async()=>{
-    const res=await axios.get("http://localhost:3000/product/show")
+    const res=await axios.get(`http://localhost:3000/user/product?id=${id}`)
     setproducts(res.data.data)
   }
   useEffect(()=>{
