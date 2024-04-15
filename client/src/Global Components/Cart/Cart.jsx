@@ -77,10 +77,7 @@ export default function Cart() {
                       const newcart=cartitem.map((item,index)=>{
                         return index===i? {...item, quantity:item.quantity<=1? 1: item.quantity-1}:item
                       })
-                      setcartitem(newcart)
-                       
-
-
+                      setcartitem(newcart)             
               }} className={styles.btnQuantity}>-</button>
               <p>{item.quantity}</p>
               <button  onClick={()=>{  

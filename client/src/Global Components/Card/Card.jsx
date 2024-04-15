@@ -8,6 +8,21 @@ export default function Card({img ,name, price, quantity, packdate, expdate, war
    const handlecart=()=>{
       setcartitem([...cartitem,{...product}])
    }
+
+   const handleDec=()=>{        
+      const newcart=cartitem.map((item,index)=>{
+        return index===i? {...item, quantity:item.quantity<=1? 1: item.quantity-1}:item
+      })
+      setcartitem(newcart)             
+   }
+
+   const handleinc=()=>{
+      const newcart=cartitem.map((item,index)=>{
+         return index===i? {...item, quantity:item.quantity<=1? 1: item.quantity+1}:item
+       })
+       setcartitem(newcart) 
+   }
+
    
   return (
    <div className={style.container}>
@@ -34,7 +49,7 @@ export default function Card({img ,name, price, quantity, packdate, expdate, war
             <h2>Warehouse:{warehouse} </h2>
          </div>
          <div className={style.btn}>
-            <button className={style.subbtn1}> - </button>
+            <button className={style.subbtn1} onClick={handleDec}> - </button>
             <button className={style.subbtn2} onClick={handlecart}>Add to Cart</button>
             <button className={style.subbtn3} onClick={handlecart}> + </button>
          </div>
