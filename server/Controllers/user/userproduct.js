@@ -3,7 +3,7 @@ const userproduct=(req,res)=>{
   try{
     const number=req.query.id
     db.connect(function(error){
-      const sql=`SELECT * FROM products where number =${number}`
+      const sql=`SELECT * FROM product where number =${number}`
       db.query(sql,async function (error,result){
           res.json({
             message:"true",
