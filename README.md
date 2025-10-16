@@ -1,4 +1,4 @@
-# 🌾 Agribusinesses Management System (DBMS Project)
+# 🌾 Agribusinesses Management System
 
 A data-driven management system designed to streamline operations for an agricultural business, focusing on inventory, supply chain, and employee data management. This project was developed to apply and demonstrate **advanced Database Management System (DBMS)** principles.
 
